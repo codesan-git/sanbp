@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans as FontJakarta } from "next/font/google";
+import { Fira_Mono as FontMono } from "next/font/google";
 import "./globals.css";
 import TanstackProvider from "@/components/common/tanstack-provider";
+export const dynamic = 'force-dynamic'
 
-const fontJakarta = FontJakarta({
-  subsets: ["cyrillic-ext"],
+const fontMono = FontMono({
+  subsets: ["latin"],
+  weight: "500",
+  adjustFontFallback: false
 })
 
 export const metadata: Metadata = {
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fontJakarta.className}>
+      <body className={fontMono.className}>
         <TanstackProvider>
           {children}
         </TanstackProvider>
