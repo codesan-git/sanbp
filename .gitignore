@@ -37,4 +37,4 @@ next-env.d.ts
 
 .git
 .env
-.bun.lockb
+bun.lockb
