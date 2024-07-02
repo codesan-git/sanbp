@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans as FontJakarta } from "next/font/google";
 import "./globals.css";
+import TanstackProvider from "@/components/common/tanstack-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontJakarta = FontJakarta({
+  subsets: ["cyrillic-ext"],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={fontJakarta.className}>
+        <TanstackProvider>
+          {children}
+        </TanstackProvider>
+      </body>
     </html>
   );
 }
